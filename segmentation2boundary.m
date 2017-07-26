@@ -22,7 +22,7 @@ function varargout = segmentation2boundary(varargin)
 
 % Edit the above text to modify the response to help segmentation2boundary
 
-% Last Modified by GUIDE v2.5 26-Jul-2017 18:11:18
+% Last Modified by GUIDE v2.5 26-Jul-2017 19:18:40
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -99,5 +99,19 @@ end
 % --- Executes on button press in pushbutton1.
 function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in pushbutton2.
+function pushbutton2_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in pushbutton3.
+function pushbutton3_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton3 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
