@@ -145,8 +145,23 @@ function listbox2_Callback(hObject, eventdata, handles)
     handles.output = hObject;
     images_list = get_list_folders(strcat('../training/segmentation_viz/',item_selected));
     set(handles.listbox2,'String',images_list);
-    get(handles.listbox2,'Value');
-    guidata(hObject, handles);
+    image_index_selected = get(handles.listbox2,'Value');
+    list_images = get(handles.listbox2,'String');
+    if image_index_selected>=1
+        image_selected = list_images{image_index_selected};
+        im = imread(strcat('../training/segmentation_viz/',item_selected,'/',image_selected));
+        im2 = imread(strcat('../training/clean/',item_selected,'/',image_selected));
+        im3 = imread(strcat('../training/segmentation_viz/',item_selected,'/',image_selected));
+        axes(handles.axes1);
+        imshow(im);
+        axes(handles.axes2);
+        imshow(im2);
+        axes(handles.axes3);
+        imshow(im3);
+        guidata(hObject, handles);
+    end
+    
+    
 
 % --- Executes during object creation, after setting all properties.
 function listbox2_CreateFcn(hObject, eventdata, handles)
