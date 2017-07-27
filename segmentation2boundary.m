@@ -22,7 +22,7 @@ function varargout = segmentation2boundary(varargin)
 
 % Edit the above text to modify the response to help segmentation2boundary
 
-% Last Modified by GUIDE v2.5 26-Jul-2017 19:18:40
+% Last Modified by GUIDE v2.5 26-Jul-2017 19:33:49
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -81,7 +81,11 @@ function listbox1_Callback(hObject, eventdata, handles)
 
 % Hints: contents = cellstr(get(hObject,'String')) returns listbox1 contents as cell array
 %        contents{get(hObject,'Value')} returns selected item from listbox1
-
+    handles.output = hObject;
+    folder_list = get_list_folders('../training/segmentation_viz/');
+    set(handles.listbox1,'Value',1);
+    set(handles.listbox1,'String',folder_list);
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function listbox1_CreateFcn(hObject, eventdata, handles)
@@ -91,8 +95,11 @@ function listbox1_CreateFcn(hObject, eventdata, handles)
 
 % Hint: listbox controls usually have a white background on Windows.
 %       See ISPC and COMPUTER.
+
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+
     set(hObject,'BackgroundColor','white');
+
 end
 
 
@@ -113,5 +120,26 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % --- Executes on button press in pushbutton3.
 function pushbutton3_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --------------------------------------------------------------------
+function uitoggletool5_OffCallback(hObject, eventdata, handles)
+% hObject    handle to uitoggletool5 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --------------------------------------------------------------------
+function uitoggletool5_OnCallback(hObject, eventdata, handles)
+% hObject    handle to uitoggletool5 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --------------------------------------------------------------------
+function uitoggletool5_ClickedCallback(hObject, eventdata, handles)
+% hObject    handle to uitoggletool5 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
