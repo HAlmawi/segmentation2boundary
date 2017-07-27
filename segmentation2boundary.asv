@@ -161,7 +161,7 @@ function listbox2_Callback(hObject, eventdata, handles)
     index_selected = get(listbox1_handle,'Value');
     list = get(listbox1_handle,'String');
     item_selected = list{index_selected}; 
-   
+    
     handles.output = hObject;
     images_list = get_list_folders(strcat('../training/segmentation_viz/',item_selected));
     set(handles.listbox2,'String',images_list);
@@ -179,3 +179,4 @@ function listbox2_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+set(hObject,'Value',1);
