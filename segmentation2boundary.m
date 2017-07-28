@@ -159,6 +159,13 @@ function listbox2_Callback(hObject, eventdata, handles)
         axes(handles.axes3);
         imshow(im3);
         guidata(hObject, handles);
+        x = 1;
+        y = 1;
+        if isgraphics(handles.axes1)
+            while x > 0 && y > 0
+             [x,y] = ginput;
+            end
+        end
     end
     
     

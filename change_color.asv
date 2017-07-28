@@ -1,5 +1,0 @@
-function change_color(folder_name,prev_color,new_color)
-    images = dir(folde
-    
-end
-
