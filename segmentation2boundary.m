@@ -151,7 +151,7 @@ function listbox2_Callback(hObject, eventdata, handles)
         image_selected = list_images{image_index_selected};
         im = imread(strcat('../training/segmentation_viz/',item_selected,'/',image_selected));
         im2 = imread(strcat('../training/clean/',item_selected,'/',image_selected));
-        im3 = imread(strcat('../training/segmentation_viz/',item_selected,'/',image_selected));
+        im3 = imread(strcat('../training/segmentation_viz_new/',item_selected,'/',image_selected));
         axes(handles.axes1);
         imshow(im);
         axes(handles.axes2);
@@ -193,7 +193,9 @@ function listbox2_Callback(hObject, eventdata, handles)
              axes(handles.axes4);
              rec_new = rectangle_color(R_new,G_new,B_new);
              imshow(rec_new./255);
-             
+             new_color = [R_new,G_new,B_new];
+             old_color = [R_old,G_old,B_old];
+             change_color(strcat('../training/segmentation_viz_new/',item_selected,'/'),old_color,new_color);
             end
         end
     end

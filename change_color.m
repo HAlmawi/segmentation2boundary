@@ -1,4 +1,4 @@
-function change_color(folder_name,save_folder,prev_color,new_color)
+function change_color(folder_name,prev_color,new_color)
     images = dir(folder_name,'/*.png');
     for i=1:size(images,1)
         im = imread(strcat(folder_name,'/',images(i).name));
@@ -11,7 +11,7 @@ function change_color(folder_name,save_folder,prev_color,new_color)
                 end
             end
         end
-        imwrite(im,strcat(save_folder,'/',images(i).name));
+        imwrite(im,strcat(folder_name,'/',images(i).name));
     end
 end
 
