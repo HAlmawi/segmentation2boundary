@@ -159,11 +159,41 @@ function listbox2_Callback(hObject, eventdata, handles)
         axes(handles.axes3);
         imshow(im3);
         guidata(hObject, handles);
-        x = 1;
-        y = 1;
+        x_old = 1;
+        y_old = 1;
         if isgraphics(handles.axes1)
-            while x > 0 && y > 0
-             [x,y] = ginput;
+            while x_old > 0 && y_old > 0
+             [y_old,x_old] = ginput;
+             x_old = floor(x_old);
+             y_old = floor(y_old);
+             text7_handle = findobj('Tag', 'text7');
+             text8_handle = findobj('Tag', 'text8');
+             set(text7_handle,'String',num2str(x_old));
+             set(text8_handle,'String',num2str(y_old));
+             %axes5 old color
+             R_old = im(x_old,y_old,1);
+             G_old = im(x_old,y_old,2);
+             B_old = im(x_old,y_old,3);
+             rec_old = rectangle_color(R_old,G_old,B_old);
+             axes(handles.axes5);
+             imshow(rec_old./255);
+             
+             %
+             [y_new,x_new] = ginput;
+             x_new = floor(x_new);
+             y_new = floor(y_new);
+             text7_handle = findobj('Tag', 'text7');
+             text8_handle = findobj('Tag', 'text8');
+             set(text7_handle,'String',num2str(x_new));
+             set(text8_handle,'String',num2str(y_new));
+             %axes4 new color
+             R_new = im(x_new,y_new,1);
+             G_new = im(x_new,y_new,2);
+             B_new = im(x_new,y_new,3);
+             axes(handles.axes4);
+             rec_new = rectangle_color(R_new,G_new,B_new);
+             imshow(rec_new./255);
+             
             end
         end
     end
