@@ -1,5 +1,5 @@
 function change_color(folder_name,prev_color,new_color)
-    images = dir(folder_name,'/*.png');
+    images = dir(strcat(folder_name,'/*.png'));
     for i=1:size(images,1)
         im = imread(strcat(folder_name,'/',images(i).name));
         for x=1:size(im,1)
